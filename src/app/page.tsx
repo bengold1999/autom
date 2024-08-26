@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/global/infiniteMovingCards";
 import { clients, products } from '@/lib/constant'
 import { HeroParallax } from "@/components/global/connecParallax";
+import { LampComponent } from "@/components/global/lamp";
 
 export default function Home() {
   return (
@@ -43,7 +44,7 @@ export default function Home() {
         <HeroParallax products={products} />
       </section>
       <section>
-        
+        <LampComponent></LampComponent>
       </section>
       </main>
   );
