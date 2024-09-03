@@ -1,3 +1,4 @@
+import Workflows from '@/components/icons/workflows'
 import React from 'react'
 import WorkflowButton from './_comps/WorkFlowButton'
 
@@ -11,7 +12,7 @@ const Page = (props: Props) => {
         Workflows
         <WorkflowButton/>
       </h1>
-      {/* <Workflows /> */}
+      <Workflows/>
     </div>
   )
 }
