@@ -1,6 +1,7 @@
 import Workflows from '@/components/icons/workflows'
 import React from 'react'
 import WorkflowButton from './_comps/WorkFlowButton'
+import Workflow from './_comps/worlflow'
 
 
 type Props = {}
@@ -12,7 +13,11 @@ const Page = (props: Props) => {
         Workflows
         <WorkflowButton/>
       </h1>
-      <Workflows/>
+      <Workflow
+      description='Workflows are a powerfull that help you automate tasks'
+      id='1'
+      name='Google Drive'
+      publish={true}/>
     </div>
   )
 }
