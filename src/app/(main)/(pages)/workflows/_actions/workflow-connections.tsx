@@ -2,7 +2,7 @@
 import { Option } from '@/components/ui/multipleSelector'
 // import { Option } from '@/components/ui/multiple-selector'
 import { db } from '@/lib/db'
-import { auth, currentUser } from '@clerk/nextjs'
+import { auth, currentUser } from '@clerk/nextjs/server'
 
 export const getGoogleListener = async () => {
   const { userId } = auth()
