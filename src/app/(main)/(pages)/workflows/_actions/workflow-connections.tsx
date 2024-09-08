@@ -1,6 +1,5 @@
 'use server'
 import { Option } from '@/components/ui/multipleSelector'
-// import { Option } from '@/components/ui/multiple-selector'
 import { db } from '@/lib/db'
 import { auth, currentUser } from '@clerk/nextjs/server'
 
@@ -151,8 +150,25 @@ export const onGetWorkflows = async () => {
 
 export const onCreateWorkflow = async (name: string, description: string) => {
   const user = await currentUser()
+  console.log(user);
 
   if (user) {
+
+    let foundUser = await db.user.findUnique({
+      where: { clerkId: user.id },  // Ensure this is the Clerk ID
+    });
+
+    if (!foundUser) {
+      foundUser = await db.user.create({
+        data: {
+          clerkId: user.id,
+          email: user.emailAddresses[0].emailAddress,
+          name: `${user.firstName} ${user.lastName}`,  // Use the first and last name from Clerk
+          // Other fields as needed
+        },
+      });
+      console.log('User created in the database');
+    }
     //create new workflow
     const workflow = await db.workflows.create({
       data: {
