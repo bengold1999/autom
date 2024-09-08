@@ -155,7 +155,7 @@ export const onCreateWorkflow = async (name: string, description: string) => {
   if (user) {
 
     let foundUser = await db.user.findUnique({
-      where: { clerkId: user.id },  // Ensure this is the Clerk ID
+      where: { clerkId: user.id },  
     });
 
     if (!foundUser) {
@@ -163,8 +163,8 @@ export const onCreateWorkflow = async (name: string, description: string) => {
         data: {
           clerkId: user.id,
           email: user.emailAddresses[0].emailAddress,
-          name: `${user.firstName} ${user.lastName}`,  // Use the first and last name from Clerk
-          // Other fields as needed
+          name: `${user.firstName} ${user.lastName}`, 
+         
         },
       });
       console.log('User created in the database');
